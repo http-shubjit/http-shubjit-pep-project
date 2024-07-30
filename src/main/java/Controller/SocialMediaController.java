@@ -115,6 +115,10 @@ public class SocialMediaController {
     private void getMessagesByUserHandler(Context ctx) throws JsonProcessingException, SQLException{
         int accountId = Integer.parseInt(ctx.pathParam("account_id"));
         List<Message> messages = messageService.getMessagesByUserId(accountId);
-        ctx.json(messages);
-    }
+
+        if (messages != null) {
+            ctx.json(messages);
+        } else {
+            ctx.status(400);
+        }    }
 }
