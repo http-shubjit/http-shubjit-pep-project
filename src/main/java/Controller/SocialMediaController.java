@@ -120,5 +120,6 @@ public class SocialMediaController {
             ctx.json(messages);
         } else {
             ctx.status(400);
-        }    }
+        }
+    }
 }
